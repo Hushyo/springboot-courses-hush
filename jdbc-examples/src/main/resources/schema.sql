@@ -4,7 +4,7 @@ create table if not exists `user`
     name varchar(45),
     create_time datetime not null default current_timestamp,
     update_time datetime not null default current_timestamp on update current_timestamp
-);
+    );
 
 create table if not exists `address`
 (
@@ -15,4 +15,4 @@ create table if not exists `address`
     update_time datetime not null default current_timestamp on update current_timestamp,
 
     index (user_id)
-);
+    );

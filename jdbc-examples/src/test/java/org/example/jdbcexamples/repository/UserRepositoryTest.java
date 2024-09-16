@@ -16,7 +16,7 @@ class UserRepositoryTest {
     @Test
     void save(){
         var user = User.builder()
-                .name("sss").build();
+                .name("test2").build();
         userRepository.save(user);
     }
 }
