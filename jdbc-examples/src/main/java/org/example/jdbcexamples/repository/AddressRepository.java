@@ -18,5 +18,4 @@ public interface AddressRepository extends CrudRepository<Address, String> {
     List<Address> findByUserId(String userId);
 
 
-
 }

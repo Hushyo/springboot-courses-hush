@@ -19,6 +19,7 @@ public class User {
     @CreatedBy
     private String id;
     private String name;
+
     @ReadOnlyProperty
     private LocalDateTime createTime;
     @ReadOnlyProperty
