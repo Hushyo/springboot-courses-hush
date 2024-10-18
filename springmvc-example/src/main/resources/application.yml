@@ -7,5 +7,5 @@ logging:
     console: '%-5level %C.%M[%line] - %msg%n'
 
 spring:
-  jackon:
-    default-proprety-inclusion: non-null
+  jackson:
+    default-property-inclusion: non-null

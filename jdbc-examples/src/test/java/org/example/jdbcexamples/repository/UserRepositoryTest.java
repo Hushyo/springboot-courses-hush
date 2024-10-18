@@ -1,6 +1,7 @@
 package org.example.jdbcexamples.repository;
 
 import lombok.extern.slf4j.Slf4j;
+import org.example.jdbcexamples.dox.Address;
 import org.example.jdbcexamples.dox.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ class UserRepositoryTest {
 
     @Test
     void save(){
-        User user = User.builder().name("0d00").build();
+        User user = User.builder().name("delete").build();
         userRepository.save(user);
     }
 
@@ -41,4 +42,20 @@ class UserRepositoryTest {
         }
     }
 
+    @Test
+    void updateUserById() {
+        userRepository.updateUser("newName","1284886181666336768");
+    }
+
+    @Test
+    void deleteUserById() {
+        userRepository.deleteUserById("1296690196175630336");
+    }
+
+    @Test
+    void findByUserId() {
+        for (Address address : userRepository.findByUserId("1284886181666336768")) {
+            System.out.println(address.toString());
+        }
+    }
 }
