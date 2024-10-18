@@ -11,8 +11,9 @@ import org.example.jdbcexamples.dox.User;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-// 封装方式二 , 想根据 address查出对应的user
 public class UserAddressDTO2 {
     private User user;
     private Address address;
 }
+
+// 封装方式二 , 想根据 address查出对应的user

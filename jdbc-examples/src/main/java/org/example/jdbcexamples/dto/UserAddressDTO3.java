@@ -13,8 +13,9 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-// 封装方式三 想根据 user查出它的所有address
 public class UserAddressDTO3 {
     private User user;
     private List<Address> addresses;
 }
+
+// 封装方式三 想根据 user查出它的所有address

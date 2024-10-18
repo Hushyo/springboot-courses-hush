@@ -17,6 +17,7 @@ create table if not exists `address`
     index (user_id)
     );
 
+
 create table if not exists `department`
 (
     id char(19) not null primary key,

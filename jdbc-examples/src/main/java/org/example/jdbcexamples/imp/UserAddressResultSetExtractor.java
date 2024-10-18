@@ -13,13 +13,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserAddressResultSetExtractor implements ResultSetExtractor<UserAddressDTO3> {
-
     @Override
     public UserAddressDTO3 extractData(ResultSet rs) throws SQLException, DataAccessException {
-
         User user = null;
         List<Address> addresses = new ArrayList<>();
-
         while(rs.next()){
             if(user==null){
                 user = User.builder()
@@ -38,11 +35,9 @@ public class UserAddressResultSetExtractor implements ResultSetExtractor<UserAdd
                     .build();
             addresses.add(a);
         }
-
     return UserAddressDTO3.builder()
             .addresses(addresses)
             .user(user).build();
-
     }
 
 
