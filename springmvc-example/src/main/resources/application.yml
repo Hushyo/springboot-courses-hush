@@ -1,0 +1,11 @@
+logging:
+  level:
+    root: warn
+    org:
+      example: debug
+  pattern:
+    console: '%-5level %C.%M[%line] - %msg%n'
+
+spring:
+  jackon:
+    default-proprety-inclusion: non-null
