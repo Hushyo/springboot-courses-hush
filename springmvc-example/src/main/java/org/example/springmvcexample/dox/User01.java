@@ -1,22 +1,18 @@
 package org.example.springmvcexample.dox;
 
+
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.cglib.core.Local;
-
-import java.time.LocalDate;
 
 @Data
-@Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class User {
-    private String id;
-    private String name;
-    private String account;
+@Builder
+public class User01 {
+    private String userName;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
-    private LocalDate createTime;
 }
