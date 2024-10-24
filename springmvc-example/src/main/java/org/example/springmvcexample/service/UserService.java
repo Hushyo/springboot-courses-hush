@@ -56,6 +56,7 @@ public class UserService {
         return "pang".equals(userName)?
                 User01.builder()
                         .userName("pang")
+                        .role("admin")
                         .password("$2a$10$8stYnVbowAnLjJUB94ydX.H9ybMgbbseeVO71xGUfqV74cnRYr8S6")
                         .build() : null;
     }

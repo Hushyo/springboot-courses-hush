@@ -1,7 +1,10 @@
 package org.example.springmvcexample.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.example.springmvcexample.component.JWTComponent;
 import org.example.springmvcexample.dox.User;
 import org.example.springmvcexample.dox.User01;
 import org.example.springmvcexample.excepiton.Code;
@@ -11,12 +14,15 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Map;
+
 @Slf4j
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/")
 public class LoginController {
 
+    private final JWTComponent jwtComponent;
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
@@ -43,6 +49,28 @@ public class LoginController {
         }
         log.debug("登陆成功");
         return ResultVO.success(u);
+    }
+
+    @PostMapping("login2")
+    public ResultVO login2(@RequestBody User01 user01, HttpServletResponse response){
+        User01 user = userService.getUser01(user01.getUserName());
+        if(user == null || !passwordEncoder.matches(user01.getPassword(),user.getPassword())){
+            return ResultVO.error(Code.LOGIN_ERROR);
+        }
+        String result = jwtComponent.encode(Map.of("name",user.getUserName(),"role",user.getRole()));
+        //获取加密后的 token
+        log.debug(result);
+        //把 result 塞入 请求的header中 作为token
+        response.addHeader("key",result);
+        response.addHeader("role",user.getRole());
+
+        return ResultVO.success(user);
+    }
+
+    @PostMapping("welcome")
+    public ResultVO welcome(@RequestAttribute("role")String role){
+        log.debug(role);
+        return ResultVO.success(Map.of("msg","欢迎"));
     }
 
 }

@@ -18,3 +18,15 @@ Content-Type: application/json
   "userName": "pang",
   "password": "12345"
 }
+
+###
+POST localhost:8080/api/login2
+Content-Type: application/json
+
+{
+  "userName": "pang",
+  "password": "123456"
+}
+###
+POST localhost:8080/api/welcome
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYWRtaW4iLCJuYW1lIjoicGFuZyIsImlhdCI6MTcyOTc2MDIwMiwiZXhwIjoxNzI5ODQ2NjAxfQ.RdPey66nunRw9vQZO2qKYMqyBhbU_0vkV6YW7ccUClo
