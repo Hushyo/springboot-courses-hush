@@ -30,19 +30,28 @@ public class JWTComponent {
         algorithm = Algorithm.HMAC256(secretkey);
     }
 
+    private final int POS=37;
+    private String encodePos(String s){
+        return new StringBuilder(s).insert(POS,"Q").toString();
+    }
+    private String decodePos(String s){
+        return new StringBuilder(s).deleteCharAt(POS).toString();
+    }
+
     public String encode(Map<String,Object> map){
         LocalDateTime time = LocalDateTime.now().plusDays(1);
 
-        return JWT.create()
+        var str= JWT.create()
                 .withPayload(map)
                 .withIssuedAt(new Date())
                 .withExpiresAt(Date.from(time.atZone(ZoneId.systemDefault()).toInstant()))
                 .sign(algorithm);
+        return encodePos(str);
     }
 
     public DecodedJWT decode(String token){
         try{
-            return JWT.require(algorithm).build().verify(token);
+            return JWT.require(algorithm).build().verify(decodePos(token));
         }catch(TokenExpiredException | SignatureVerificationException e){
             if(e instanceof SignatureVerificationException){
                 throw myException.builder().code(Code.FORBIDDEN).build();

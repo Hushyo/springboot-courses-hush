@@ -4,6 +4,12 @@ spring:
     username: 2022212891
     password: 2022212891
 
+  cache:
+    type: caffeine
+    caffeine:
+      spec: initialCapacity=10,maximumSize=200,expireAfterWrite=3s
+
+
   sql:
     init:
       mode: always

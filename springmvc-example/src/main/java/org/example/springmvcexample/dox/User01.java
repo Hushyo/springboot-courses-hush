@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class User01 {
+    private String id;
     private String userName;
     private String role;
     @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)

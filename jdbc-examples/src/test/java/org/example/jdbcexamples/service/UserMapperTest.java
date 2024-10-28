@@ -6,27 +6,26 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 @Slf4j
-class UserServiceTest {
+class UserMapperTest {
 
     @Autowired
-    UserService userService;
+    UserMapper userMapper;
     @Test
     void findUserByAddressId() {
-        log.debug("{}",userService.findUserByAddressId("3"));
+        log.debug("{}", userMapper.findUserByAddressId("3"));
     }
 
 
     @Test
     void findUserByAddressId2() {
-        log.debug("{}",userService.findUserByAddressId2("3"));
+        log.debug("{}", userMapper.findUserByAddressId2("3"));
     }
 
     @Test
     void findAddressByUid() {
-        for(Address address: userService.findAddressByUid("1284873941642883072").getAddresses()){
+        for(Address address: userMapper.findAddressByUid("1284873941642883072").getAddresses()){
             log.debug("{}",address);
         }
     }

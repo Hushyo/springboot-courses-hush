@@ -1,0 +1,14 @@
+POST localhost:8080/api/users/update
+Content-Type: application/json
+
+{
+  "id": "11",
+  "name": "jj"
+}
+
+###
+POST localhost:8080/api/users/update/11
+###
+GET localhost:8080/api/users/11
+###
+GET localhost:8080/api/users/delete/11

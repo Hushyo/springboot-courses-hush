@@ -14,6 +14,19 @@ import java.util.List;
 @Repository
 public interface UserRepository extends CrudRepository<User,String> {
 
+
+    @Query("select * from user u where u.id=:id")
+    User findUserById(String id);
+
+
+    @Query("select * from user u where u.name=:name")
+    User findByName(String name);
+
+    @Modifying
+    @Query("update user u set name=:name where u.id=:id ")
+    void updateUserById(String id, String name);
+
+
     @Query("select * from address a where a.user_id=:userId")
     List<Address> findByUserId(String userId);
 

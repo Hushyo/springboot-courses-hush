@@ -15,6 +15,9 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @Builder
 public class User {
+
+    public static int count=0;
+
     @Id
     @CreatedBy
     private String id;

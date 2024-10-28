@@ -28,9 +28,11 @@ public class LoginInterceptor implements HandlerInterceptor {
         DecodedJWT decodedJWT = jwtComponent.decode(token);
         String name = decodedJWT.getClaim("name").asString();
         String role = decodedJWT.getClaim("role").asString();
+        String id = decodedJWT.getClaim("id").asString();
 
         request.setAttribute("name", name);
         request.setAttribute("role", role);
+        request.setAttribute("id", id);
 
         return true;
     }

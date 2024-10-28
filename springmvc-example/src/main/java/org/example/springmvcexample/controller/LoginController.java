@@ -1,5 +1,8 @@
 package org.example.springmvcexample.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
@@ -20,14 +23,16 @@ import java.util.Map;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/")
+@Tag(name="登录")
 public class LoginController {
 
     private final JWTComponent jwtComponent;
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
+    @Operation(summary = "普通登录",description = "普通登陆方法")
     @PostMapping("login")
-    public ResultVO login(@RequestBody User user){//把请求体的json反序列化为user对象传入使用
+    public ResultVO login( @RequestBody User user){//把请求体的json反序列化为user对象传入使用
         //想来登录时，用登录信息试图从数据库中取User
         User userR = userService.getUserByAccount(user.getAccount(),user.getPassword());
         if(userR == null){//用户不存在，返回一个通用的错误信息

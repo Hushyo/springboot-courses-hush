@@ -9,5 +9,6 @@ logging:
 spring:
   jackson:
     default-property-inclusion: non-null
+
 my:
   secretkey: 0d000721

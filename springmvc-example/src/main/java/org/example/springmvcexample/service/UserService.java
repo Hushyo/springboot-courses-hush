@@ -55,9 +55,11 @@ public class UserService {
     public User01 getUser01(String userName){
         return "pang".equals(userName)?
                 User01.builder()
+                        .id("1")
                         .userName("pang")
                         .role("admin")
                         .password("$2a$10$8stYnVbowAnLjJUB94ydX.H9ybMgbbseeVO71xGUfqV74cnRYr8S6")
                         .build() : null;
     }
+
 }
