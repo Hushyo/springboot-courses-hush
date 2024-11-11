@@ -30,6 +30,25 @@ public class LoginController {
     private final UserService userService;
     private final PasswordEncoder passwordEncoder;
 
+    @PostMapping("login")
+    public ResultVO login( @RequestBody User user,HttpServletResponse response){//把请求体的json反序列化为user对象传入使用
+        //想来登录时，用登录信息试图从数据库中取User
+        User userR = userService.getUserByAccount(user.getAccount());
+        System.out.println(userR.toString());
+        if(userR == null || !passwordEncoder.matches(user.getPassword(), userR.getPassword())) {
+            return ResultVO.error(Code.LOGIN_ERROR);
+        }
+        String token = jwtComponent.encode(
+                Map.of("uid", userR.getId(),
+                        "role", userR.getRole())
+        );
+        response.setHeader("token", token);
+        response.setHeader("role", userR.getRole());
+        //给前端Header返回token和role,role可以是自己写的
+        return ResultVO.success(userR);
+    }
+
+    /*
     @Operation(summary = "普通登录",description = "普通登陆方法")
     @PostMapping("login")
     public ResultVO login( @RequestBody User user){//把请求体的json反序列化为user对象传入使用
@@ -40,7 +59,8 @@ public class LoginController {
         }
         //成功则把 userR 对象作为数据 存入成功信息里返回
         return ResultVO.success(userR);
-    }
+    }*/
+
 
     @PostMapping("login1")
     public ResultVO login1(@RequestBody User01 user01){//来了一个登录，先把请求体里的 json 转化为 user对象

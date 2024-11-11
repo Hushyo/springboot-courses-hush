@@ -1,14 +1,13 @@
-package org.example.springmvcexample.component;
+package org.example.backendexample.component;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import com.auth0.jwt.exceptions.SignatureGenerationException;
 import com.auth0.jwt.exceptions.SignatureVerificationException;
 import com.auth0.jwt.exceptions.TokenExpiredException;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import jakarta.annotation.PostConstruct;
-import org.example.springmvcexample.excepiton.Code;
-import org.example.springmvcexample.excepiton.myException;
+import org.example.backendexample.excepiton.Code;
+import org.example.backendexample.excepiton.myException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 

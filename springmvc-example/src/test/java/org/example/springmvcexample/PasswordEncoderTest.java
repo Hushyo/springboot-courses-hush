@@ -16,7 +16,6 @@ public class PasswordEncoderTest {
     public void test_password(){
         String pwd = "123456";
         log.debug(encoder.encode(pwd));
-        log.debug(encoder.encode(pwd));
         String result = encoder.encode(pwd);
         log.debug("{}",encoder.matches("1234",result));
         log.debug("{}",encoder.matches("123456",result));

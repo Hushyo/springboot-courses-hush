@@ -14,9 +14,13 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
+    public static final String USER ="ko";
+    public static final String ADMIN = "kk";
     private String id;
     private String name;
     private String account;
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+    private String role;
     private LocalDate createTime;
 }

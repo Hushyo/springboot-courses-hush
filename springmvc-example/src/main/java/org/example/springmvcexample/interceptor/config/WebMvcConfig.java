@@ -1,7 +1,8 @@
 package org.example.springmvcexample.interceptor.config;
 
 import lombok.RequiredArgsConstructor;
-import org.example.springmvcexample.component.LoginInterceptor;
+import org.example.springmvcexample.interceptor.AdminInterceptor;
+import org.example.springmvcexample.interceptor.LoginInterceptor;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
@@ -11,12 +12,15 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebMvcConfig implements WebMvcConfigurer {
 
     private final LoginInterceptor loginInterceptor;
+    private final AdminInterceptor adminInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(loginInterceptor)
-                .addPathPatterns("/api/**")
-                .excludePathPatterns("/api/login2");
-        WebMvcConfigurer.super.addInterceptors(registry);
+                .addPathPatterns("/api/**") //一个*代表api下单层的请求，两个**代表api下所有的请求
+                //对于所有的请求都拦截，但是得允许用户登录
+                .excludePathPatterns("/api/login");
+        registry.addInterceptor(adminInterceptor)
+                .addPathPatterns(("/api/user/**"));
     }
 }

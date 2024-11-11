@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class ExceptionController {
     @ExceptionHandler(myException.class)
-    public ResultVO handlerValidException(myException e) {
+    public ResultVO handlerMyException(myException e) {
         if(e.getCode()!=null) {
             return ResultVO.error(e.getCode());
         }

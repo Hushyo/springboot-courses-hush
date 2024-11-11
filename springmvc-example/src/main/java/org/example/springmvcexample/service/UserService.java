@@ -19,14 +19,23 @@ public class UserService {
         User u = User.builder()
                 .id("1")
                 .name("Hush")
-                .account("Hushyo")
-                .password("123456")
+                .role(User.ADMIN)
+                .account("1001")
+                .password("$2a$10$fsvEybsOsfW6p7MRJFtBEu5bTmRA/tAMiq2AF7wJt/QViokmtJKra")
                 .build();
-        return List.of(u);
+        User u2 = User.builder()
+                .id("2")
+                .name("user2")
+                .role(User.USER)
+                .account("1002")
+                .password("$2a$10$fsvEybsOsfW6p7MRJFtBEu5bTmRA/tAMiq2AF7wJt/QViokmtJKra")
+                .build();
+        return List.of(u,u2);
     }
     public List<User> listUsers(){
         return USERS;
     }
+/*
     public User getUserByAccount(String account, String password){
         return USERS.stream()
                 .filter(u->u.getAccount().equals(account))
@@ -34,8 +43,10 @@ public class UserService {
                 .findFirst()
                 .orElse(null);
     }
+    */
+
     public User getUserByAccount(String account){
-        return USERS.stream()
+        return USERS.stream()//从用户列表里过滤匹配 account的用户
                 .filter(u->u.getAccount().equals(account))
                 .findFirst()
                 .orElse(null);
