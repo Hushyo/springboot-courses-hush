@@ -8,7 +8,8 @@ spring:
     type: caffeine
     caffeine:
       spec: initialCapacity=10,maximumSize=200,expireAfterWrite=3s
-
+  jackson:
+    default-property-inclusion: non-null
 
   sql:
     init:
@@ -21,3 +22,6 @@ logging:
       example: debug
   pattern:
     console: '%-5level %C.%M[%line] - %msg%n'
+
+my:
+  secretkey: backend

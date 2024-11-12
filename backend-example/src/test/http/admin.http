@@ -1,0 +1,18 @@
+POST localhost:8080/api/admin/users
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzA1NTUxODM2NTUxODE5MjY0Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzMxMzM4MzUxLCJleHAiOjE3MzE0MjQ3NTF9.uE2MzvXITholQPiRYf_uh37SEP7MMom3bbzPwjSbnJY
+Content-Type: application/json
+
+{
+  "name": "crystal",
+  "account": "1002",
+  "role": "user"
+}
+
+###
+PUT localhost:8080/api/admin/users/1001/password
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzA1NTUxODM2NTUxODE5MjY0Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzMxMzM4MzUxLCJleHAiOjE3MzE0MjQ3NTF9.uE2MzvXITholQPiRYf_uh37SEP7MMom3bbzPwjSbnJY
+
+
+###
+GET localhost:8080/api/admin/users
+token:eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxMzA1NTUxODM2NTUxODE5MjY0Iiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzMxMzM4MzUxLCJleHAiOjE3MzE0MjQ3NTF9.uE2MzvXITholQPiRYf_uh37SEP7MMom3bbzPwjSbnJY
