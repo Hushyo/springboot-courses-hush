@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/springmvc-example/pom.xml" />
         <option value="$PROJECT_DIR$/backend/pom.xml" />
         <option value="$PROJECT_DIR$/backend-example/pom.xml" />
+        <option value="$PROJECT_DIR$/redis-example/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
