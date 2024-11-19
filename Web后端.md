@@ -1026,7 +1026,7 @@ JSON字段名 - >> '\$.键名' $代表根，取根下的键名对应的值
 过程表数据库设计
 <img src="https://cdn.jsdelivr.net/gh/Hushyo/img@main/img/image-20241008163654533.png" alt="image-20241008163654533" style="zoom: 50%;" /> 
 
-items 子项，存过程子项名，占比，以及描述
+Items 子项，存过程子项名，占比，以及描述
 
 打分表
 <img src="https://cdn.jsdelivr.net/gh/Hushyo/img@main/img/image-20241008164146554.png" alt="image-20241008164146554" style="zoom: 50%;" /> 

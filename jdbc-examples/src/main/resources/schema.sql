@@ -43,7 +43,7 @@ create table if not exists `process`
 (
     id char(19) not null primary key,
     name varchar(20) not null,
-    items json null comment '[{"number","name","point","description"}]',
+    Items json null comment '[{"number","name","point","description"}]',
     insert_time datetime not null default current_timestamp,
     update_time datetime not null default  current_timestamp on update current_timestamp
 );

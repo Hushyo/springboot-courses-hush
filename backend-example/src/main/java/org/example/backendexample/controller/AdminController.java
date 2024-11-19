@@ -27,4 +27,9 @@ public class AdminController {
     public ResultVO getUsers() {
         return ResultVO.success(userService.listUsers());
     }
+
+    @GetMapping("users/{userid}/local")
+    public ResultVO get(@PathVariable int userid){
+        return ResultVO.ok();
+    }
 }
